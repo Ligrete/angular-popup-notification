@@ -2,5 +2,6 @@
  * Public API Surface of angular-popup-notification-lib
  */
 
-export * from './lib/angular-popup-notification-lib.service';
-export * from './lib/angular-popup-notification-lib.component';
+export { PopupNotificationModule } from './lib/popup-notification.module';
+export { AngularPopupNotificationLibService } from './lib/services/angular-popup-notification-lib.service';
+export { PopupNotificationDirective } from './lib/directives/popup-notification.directive';
