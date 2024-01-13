@@ -1,54 +1,70 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {
-  AngularPopupNotificationLibService,
+  NotificationData,
   PopupNotificationDirective,
   PopupNotificationModule,
 } from 'angular-popup-notification-lib';
-import {MatInputModule} from '@angular/material/input';
-import {MatButtonModule} from '@angular/material/button';
+import { MatInputModule } from '@angular/material/input';
+import { MatButtonModule } from '@angular/material/button';
 import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [CommonModule, PopupNotificationModule, MatInputModule, FormsModule, MatButtonModule],
+  imports: [
+    CommonModule,
+    PopupNotificationModule,
+    MatInputModule,
+    FormsModule,
+    MatButtonModule,
+  ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
 })
 export class AppComponent implements OnInit {
   title = 'angular-popup-notification';
-  content = '';
+  data: NotificationData = {
+    title: 'Test',
+    text: 'Hi asdnand;ahoewhcpq hcdfhhspiueie23473y2c4dshc gwcwrcw wgercbxc hher qhwe1g1d',
+    duration: 123123123,
+    submitButton: 'Accept',
+    cancelButton: 'Cancel'
+  };
 
-  constructor(
-    private popupService: AngularPopupNotificationLibService,
-    private popupDirective: PopupNotificationDirective
-  ) {}
+  constructor(private popupDirective: PopupNotificationDirective) {}
 
   ngOnInit(): void {
-    const list = [
+    const list: NotificationData[] = [
       {
         title: 'test 1',
-        content: 'content test',
+        text: 'content test',
+        duration: 1000,
       },
       {
         title: 'test 2',
-        content: 'content test',
+        text: 'content test',
+        duration: 7000,
       },
       {
         title: 'test 3',
-        content: 'content test',
+        text: 'content test',
+        submitButton: 'Accept',
+        cancelButton: 'Cancel',
+        duration: 3000,
       },
     ];
 
-    list.forEach((val) => {
-      this.popupDirective.createNotification(val);
-    });
+    if (list) {
+      list.forEach((val: NotificationData) => {
+        this.popupDirective.createNotification(val);
+      });
+    }
   }
 
-  create(title: string, content: string) {
-    this.popupDirective.createNotification({
-      title, content
-    });
+  create() {
+    if (this.data) {
+      this.popupDirective.createNotification(this.data);
+    }
   }
 }

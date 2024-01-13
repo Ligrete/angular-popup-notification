@@ -104,6 +104,11 @@
       "root": "projects/angular-popup-notification-lib",
       "sourceRoot": "projects/angular-popup-notification-lib/src",
       "prefix": "lib",
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      },
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:ng-packagr",

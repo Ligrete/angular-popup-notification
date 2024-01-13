@@ -1,17 +1,29 @@
-
-
-
 <div class="form">
   <mat-form-field class="example-form-field" appearance="outline">
     <mat-label>title</mat-label>
-    <input type="text" matInput [(ngModel)]="title" >
-  
+    <input type="text" matInput [(ngModel)]="data.title">
   </mat-form-field>
-  
+
   <mat-form-field class="example-form-field" appearance="outline">
-    <mat-label>content</mat-label>
-    <input type="text" matInput [(ngModel)]="content">
-  
+    <mat-label>text</mat-label>
+    <input type="text" matInput [(ngModel)]="data.text">
   </mat-form-field>
-  <button mat-raised-button color="primary" (click)="create(title, content)">create</button>
+
+  <mat-form-field class="example-form-field" appearance="outline">
+    <mat-label>duration</mat-label>
+    <input type="text" matInput [(ngModel)]="data.duration">
+  </mat-form-field>
+
+
+  <mat-form-field class="example-form-field" appearance="outline">
+    <mat-label>submitButton</mat-label>
+    <input type="text" matInput [(ngModel)]="data.submitButton">
+  </mat-form-field>
+
+  <mat-form-field class="example-form-field" appearance="outline">
+    <mat-label>cancelButton</mat-label>
+    <input type="text" matInput [(ngModel)]="data.cancelButton">
+  </mat-form-field>
+
+  <button mat-raised-button color="primary" (click)="create()">create</button>
 </div>

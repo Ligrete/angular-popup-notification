@@ -5,3 +5,4 @@
 export { PopupNotificationModule } from './lib/popup-notification.module';
 export { AngularPopupNotificationLibService } from './lib/services/angular-popup-notification-lib.service';
 export { PopupNotificationDirective } from './lib/directives/popup-notification.directive';
+export { NotificationData } from './lib/models/notification.model';

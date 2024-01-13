@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { PopupNotificationDirective } from './directives/popup-notification.directive';
-import { NotificationCardComponent } from './components/notification-card.component';
+import { NotificationCardComponent } from './components/notification-card/notification-card.component';
 
 @NgModule({
   imports: [CommonModule, NotificationCardComponent],

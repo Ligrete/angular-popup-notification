@@ -1,0 +1,19 @@
+<div class="card">
+    <div class="card__content">
+        <div class="content__title">
+            {{ data?.title }}
+        </div>
+        <div class="content__text">
+            {{ data?.text }}
+        </div>
+    </div>
+
+    <div class="card__actions">
+        <button class="submit-button" *ngIf="data?.submitButton" (click)="clickedSubmit.emit(data)">
+            {{ data?.submitButton }}
+        </button>
+        <button class="cancel-button" *ngIf="data?.cancelButton" (click)="clickedCancel.emit(data)">
+            {{ data?.cancelButton }}
+        </button>
+    </div>
+</div>
