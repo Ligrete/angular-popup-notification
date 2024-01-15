@@ -4,11 +4,11 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build",
+    "build": "ng build --prod",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "build-lib": "ng build angular-popup-notification-lib",
-    "serve-lib": "ng build angular-popup-notification-lib --watch --configuration development"
+    "serve-lib": "ng build em-lib --watch --configuration development",
+    "build-lib": "ng build em-lib  --configuration production"
   },
   "private": true,
   "dependencies": {

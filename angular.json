@@ -99,11 +99,11 @@
         }
       }
     },
-    "angular-popup-notification-lib": {
+    "em-lib": {
       "projectType": "library",
-      "root": "projects/angular-popup-notification-lib",
-      "sourceRoot": "projects/angular-popup-notification-lib/src",
-      "prefix": "lib",
+      "root": "projects/em-lib",
+      "sourceRoot": "projects/em-lib/src",
+      "prefix": "em",
       "schematics": {
         "@schematics/angular:component": {
           "style": "scss"
@@ -113,14 +113,14 @@
         "build": {
           "builder": "@angular-devkit/build-angular:ng-packagr",
           "options": {
-            "project": "projects/angular-popup-notification-lib/ng-package.json"
+            "project": "projects/em-lib/ng-package.json"
           },
           "configurations": {
             "production": {
-              "tsConfig": "projects/angular-popup-notification-lib/tsconfig.lib.prod.json"
+              "tsConfig": "projects/em-lib/tsconfig.lib.prod.json"
             },
             "development": {
-              "tsConfig": "projects/angular-popup-notification-lib/tsconfig.lib.json"
+              "tsConfig": "projects/em-lib/tsconfig.lib.json"
             }
           },
           "defaultConfiguration": "production"
@@ -128,7 +128,7 @@
         "test": {
           "builder": "@angular-devkit/build-angular:karma",
           "options": {
-            "tsConfig": "projects/angular-popup-notification-lib/tsconfig.spec.json",
+            "tsConfig": "projects/em-lib/tsconfig.spec.json",
             "polyfills": [
               "zone.js",
               "zone.js/testing"

@@ -1,7 +1,7 @@
 import { ComponentRef, Directive, ViewContainerRef } from '@angular/core';
-import { NotificationOverlayComponent } from '../components/notification-overlay/notification-overlay.component';
 import { DURATION } from '../constants/notifications-preset.const';
-import { Notification, NotificationData } from '../models/notification.model';
+import { NotificationOverlayComponent } from '../components/notification-overlay/notification-overlay.component';
+import { NotificationData, Notification } from '../models/notification.model';
 
 @Directive({
   selector: '[libPopupNotification]',

@@ -3,11 +3,8 @@ import { Component, Input, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { MatInputModule } from '@angular/material/input';
-import {
-  NotificationData,
-  PopupNotificationDirective,
-  PopupNotificationModule,
-} from 'angular-popup-notification-lib';
+import { NotificationData, PopupNotificationModule } from 'em-lib';
+import { AppService } from './app-service.service';
 
 @Component({
   selector: 'app-root',
@@ -31,7 +28,7 @@ export class AppComponent implements OnInit {
     duration: 3000,
   };
 
-  constructor(private popupDirective: PopupNotificationDirective) {}
+  constructor(private appService: AppService) {}
 
   ngOnInit(): void {
     const list: NotificationData[] = [
@@ -68,23 +65,14 @@ export class AppComponent implements OnInit {
 
     if (list) {
       list.forEach((val: NotificationData) => {
-        this.popupDirective.createNotification(val);
+        this.appService.create(val);
       });
     }
   }
 
   create() {
     if (this.data) {
-      const duration =
-        this.data.duration && this.data.duration > 0
-          ? Number(this.data.duration)
-          : Number(String(Math.floor(Math.random() * 10)) + '000');
-      const newNotification = {
-        ...this.data,
-        duration: duration,
-      };
-
-      this.popupDirective.createNotification(newNotification);
+      this.appService.create(this.data);
     }
   }
 }

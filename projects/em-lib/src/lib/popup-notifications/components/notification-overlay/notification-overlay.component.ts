@@ -13,11 +13,11 @@ import {
   MAX_STACK_SIZE,
 } from '../../constants/notifications-preset.const';
 import { Notification } from '../../models/notification.model';
-import { AngularPopupNotificationLibService } from '../../services/angular-popup-notification-lib.service';
 import { NotificationCardComponent } from '../notification-card/notification-card.component';
+import { AngularPopupNotificationLibService } from '../../services/angular-popup-notification-lib.service';
 
 @Component({
-  selector: 'lib-notification-overlay',
+  selector: 'em-notification-overlay',
   standalone: true,
   imports: [CommonModule, NotificationCardComponent],
   templateUrl: './notification-overlay.component.html',

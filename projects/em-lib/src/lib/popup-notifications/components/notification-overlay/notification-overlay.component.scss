@@ -1,4 +1,4 @@
-lib-notification-overlay.overlay {
+em-notification-overlay.overlay {
   position: fixed;
   inset: 0;
   padding: 16px;
@@ -23,7 +23,7 @@ lib-notification-overlay.overlay {
     flex-direction: row-reverse;
 
     opacity: 0;
-    animation: show 2s 1;
+    animation: show 1s 1;
     animation-fill-mode: forwards;
     overflow: hidden;
     transform: translate(0, 0);
@@ -32,12 +32,17 @@ lib-notification-overlay.overlay {
     pointer-events: auto;
 
     @keyframes show {
-      from {
-        opacity: 0;
+      0% {
         transform: translate(0, 100px);
+        height: 0;
+        opacity: 0;
       }
 
-      to {
+      50% {
+        opacity: 0;
+      }
+
+      100% {
         opacity: 1;
         transform: translate(0, 0);
       }
