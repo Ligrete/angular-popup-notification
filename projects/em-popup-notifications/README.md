@@ -14,7 +14,7 @@ Run `ng build em-lib` to build the project. The build artifacts will be stored i
 
 ## Publishing
 
-After building your library with `ng build em-lib`, go to the dist folder `cd dist/em-lib` and run `npm publish`.
+After building your library with `ng build em-lib`, go to the dist folder `cd dist/em-popup-notifications` and run `npm publish`.
 
 ## Running unit tests
 

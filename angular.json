@@ -101,8 +101,8 @@
     },
     "em-lib": {
       "projectType": "library",
-      "root": "projects/em-lib",
-      "sourceRoot": "projects/em-lib/src",
+      "root": "projects/em-popup-notifications",
+      "sourceRoot": "projects/em-popup-notifications/src",
       "prefix": "em",
       "schematics": {
         "@schematics/angular:component": {
@@ -113,14 +113,14 @@
         "build": {
           "builder": "@angular-devkit/build-angular:ng-packagr",
           "options": {
-            "project": "projects/em-lib/ng-package.json"
+            "project": "projects/em-popup-notifications/ng-package.json"
           },
           "configurations": {
             "production": {
-              "tsConfig": "projects/em-lib/tsconfig.lib.prod.json"
+              "tsConfig": "projects/em-popup-notifications/tsconfig.lib.prod.json"
             },
             "development": {
-              "tsConfig": "projects/em-lib/tsconfig.lib.json"
+              "tsConfig": "projects/em-popup-notifications/tsconfig.lib.json"
             }
           },
           "defaultConfiguration": "production"
@@ -128,7 +128,7 @@
         "test": {
           "builder": "@angular-devkit/build-angular:karma",
           "options": {
-            "tsConfig": "projects/em-lib/tsconfig.spec.json",
+            "tsConfig": "projects/em-popup-notifications/tsconfig.spec.json",
             "polyfills": [
               "zone.js",
               "zone.js/testing"

@@ -3,7 +3,10 @@ import { Component, Input, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { MatInputModule } from '@angular/material/input';
-import { NotificationData, PopupNotificationModule } from 'em-lib';
+import {
+  NotificationData,
+  PopupNotificationModule,
+} from '@em-libs/em-popup-notifications';
 import { AppService } from './app-service.service';
 
 @Component({
@@ -20,8 +23,6 @@ import { AppService } from './app-service.service';
   styleUrl: './app.component.scss',
 })
 export class AppComponent implements OnInit {
-  title = 'angular-popup-notification';
-
   @Input() data: NotificationData = {
     title: 'Test',
     text: 'Hi asdnand;ahoewhcpq hcdfhhspiueie23473y2c4dshc gwcwrcw wgercbxc hher qhwe1g1d',

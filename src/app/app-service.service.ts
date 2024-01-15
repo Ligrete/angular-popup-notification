@@ -1,5 +1,8 @@
 import { Injectable } from '@angular/core';
-import { NotificationData, PopupNotificationDirective } from 'em-lib';
+import {
+  NotificationData,
+  PopupNotificationDirective,
+} from '@em-libs/em-popup-notifications';
 
 @Injectable({
   providedIn: 'any',

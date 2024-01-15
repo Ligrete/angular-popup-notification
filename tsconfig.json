@@ -3,7 +3,8 @@
   "compileOnSave": false,
   "compilerOptions": {
     "paths": {
-      "em-lib": ["./dist/em-lib"]
+      "@em-libs/em-popup-notifications": ["./dist/em-popup-notifications"],
+      "@em-libs/em-popup-notifications/*": ["./dist/em-popup-notifications/*"]
     },
     "outDir": "./dist/out-tsc",
     "forceConsistentCasingInFileNames": true,
