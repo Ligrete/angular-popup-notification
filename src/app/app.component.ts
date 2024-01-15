@@ -1,13 +1,13 @@
-import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { Component, Input, OnInit } from '@angular/core';
+import { FormsModule } from '@angular/forms';
+import { MatButtonModule } from '@angular/material/button';
+import { MatInputModule } from '@angular/material/input';
 import {
   NotificationData,
   PopupNotificationDirective,
   PopupNotificationModule,
 } from 'angular-popup-notification-lib';
-import { MatInputModule } from '@angular/material/input';
-import { MatButtonModule } from '@angular/material/button';
-import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-root',
@@ -24,7 +24,8 @@ import { FormsModule } from '@angular/forms';
 })
 export class AppComponent implements OnInit {
   title = 'angular-popup-notification';
-  data: NotificationData = {
+
+  @Input() data: NotificationData = {
     title: 'Test',
     text: 'Hi asdnand;ahoewhcpq hcdfhhspiueie23473y2c4dshc gwcwrcw wgercbxc hher qhwe1g1d',
     duration: 3000,
@@ -51,6 +52,18 @@ export class AppComponent implements OnInit {
         cancelButton: 'Cancel',
         duration: 3000,
       },
+      {
+        title: 'test 4',
+        text: 'content test',
+        submitButton: 'Accept',
+        duration: 5000,
+      },
+      {
+        title: 'test 5',
+        text: 'content test',
+        cancelButton: 'Cancel',
+        duration: 6000,
+      },
     ];
 
     if (list) {
@@ -62,7 +75,16 @@ export class AppComponent implements OnInit {
 
   create() {
     if (this.data) {
-      this.popupDirective.createNotification(this.data);
+      const duration =
+        this.data.duration && this.data.duration > 0
+          ? Number(this.data.duration)
+          : Number(String(Math.floor(Math.random() * 10)) + '000');
+      const newNotification = {
+        ...this.data,
+        duration: duration,
+      };
+
+      this.popupDirective.createNotification(newNotification);
     }
   }
 }
