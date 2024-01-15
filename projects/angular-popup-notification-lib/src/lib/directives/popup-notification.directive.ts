@@ -1,13 +1,7 @@
-import {
-  ComponentRef,
-  Directive,
-  OnInit,
-  ViewContainerRef,
-} from '@angular/core';
+import { ComponentRef, Directive, ViewContainerRef } from '@angular/core';
 import { NotificationOverlayComponent } from '../components/notification-overlay/notification-overlay.component';
-import { distinctUntilChanged, interval, of, switchMap, tap } from 'rxjs';
-import { Notification, NotificationData } from '../models/notification.model';
 import { DURATION } from '../constants/notifications-preset.const';
+import { Notification, NotificationData } from '../models/notification.model';
 
 @Directive({
   selector: '[libPopupNotification]',
@@ -22,10 +16,7 @@ export class PopupNotificationDirective {
       NotificationOverlayComponent
     );
     if (component) {
-      console.log('directive');
-
       this.hostComponent = component;
-      this.startCheck();
     }
   }
 
@@ -39,18 +30,10 @@ export class PopupNotificationDirective {
         id: this.index,
         createdAt: new Date().getTime(),
         duration: item?.duration ?? DURATION,
+        isHidden: false,
       };
 
-      this.hostComponent.instance.create(newNotification);
-      this.index++;
+      this.index = this.hostComponent.instance.create(newNotification);
     }
-  }
-
-  startCheck(): void {
-    interval(1000)
-      .pipe(distinctUntilChanged())
-      .subscribe((val) => {
-        console.log('tap', val);
-      });
   }
 }

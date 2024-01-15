@@ -1,6 +1,6 @@
 <div class="overlay-wrapper">
     <ng-container *ngFor="let item of items; index as i; trackBy: trackByFn">
-        <notification-card class="notification-card" *ngIf="items.length - maxArraySize - 3 < i && item as data"
+        <notification-card class="notification-card" *ngIf="items.length - maxArraySize - 2 < i"
             [data]="item"
             [ngClass]="{
             isHidden:

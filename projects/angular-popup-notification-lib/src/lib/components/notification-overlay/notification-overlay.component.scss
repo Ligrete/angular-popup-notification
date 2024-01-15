@@ -2,7 +2,7 @@ lib-notification-overlay.overlay {
   position: fixed;
   inset: 0;
   padding: 16px;
-
+  z-index: 99999;
   pointer-events: none;
 
   .overlay-wrapper {
@@ -64,6 +64,7 @@ lib-notification-overlay.overlay {
 
       100% {
         height: 0;
+        opacity: 0;
       }
 
     }

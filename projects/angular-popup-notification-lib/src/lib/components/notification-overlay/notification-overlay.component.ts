@@ -1,16 +1,20 @@
 import { CommonModule } from '@angular/common';
 import {
+  ChangeDetectionStrategy,
   ChangeDetectorRef,
   Component,
   HostBinding,
+  Input,
   ViewEncapsulation,
 } from '@angular/core';
-import { NotificationCardComponent } from '../notification-card/notification-card.component';
-import { Notification } from '../../models/notification.model';
+import { timer } from 'rxjs';
 import {
   DURATION,
   MAX_STACK_SIZE,
 } from '../../constants/notifications-preset.const';
+import { Notification } from '../../models/notification.model';
+import { AngularPopupNotificationLibService } from '../../services/angular-popup-notification-lib.service';
+import { NotificationCardComponent } from '../notification-card/notification-card.component';
 
 @Component({
   selector: 'lib-notification-overlay',
@@ -19,20 +23,26 @@ import {
   templateUrl: './notification-overlay.component.html',
   styleUrl: './notification-overlay.component.scss',
   encapsulation: ViewEncapsulation.None,
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class NotificationOverlayComponent {
-  items: Notification[] = [];
+  @Input() items: Notification[] = [];
 
-  maxArraySize = MAX_STACK_SIZE || 5;
+  maxArraySize = this.notificationsService.getMaxArraySize ?? MAX_STACK_SIZE;
   duration = DURATION;
 
   @HostBinding('class.overlay') someField = true;
 
-  constructor(private cdr: ChangeDetectorRef) {}
+  constructor(
+    private cdr: ChangeDetectorRef,
+    private notificationsService: AngularPopupNotificationLibService
+  ) {}
 
   public create(item: Notification): number {
-    console.log(item);
-    return this.items.push(item);
+    this.createLifetimeChecker(item);
+    const index = this.items.push(item);
+    this.cdr.markForCheck();
+    return index;
   }
 
   isExpired(notification: Notification): boolean {
@@ -47,9 +57,16 @@ export class NotificationOverlayComponent {
     return item?.id;
   }
 
-  updateLifeTimer() {
-    console.log('update');
+  createLifetimeChecker(item: Notification) {
+    timer(item.duration).subscribe(() => {
+      this.hideNotification(item);
+    });
+  }
 
+  hideNotification(item: Notification) {
+    this.items = this.items.map((val) =>
+      val?.id === item?.id ? { ...val, isHidden: true } : val
+    );
     this.cdr.markForCheck();
   }
 }

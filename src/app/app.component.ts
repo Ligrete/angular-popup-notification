@@ -27,9 +27,7 @@ export class AppComponent implements OnInit {
   data: NotificationData = {
     title: 'Test',
     text: 'Hi asdnand;ahoewhcpq hcdfhhspiueie23473y2c4dshc gwcwrcw wgercbxc hher qhwe1g1d',
-    duration: 123123123,
-    submitButton: 'Accept',
-    cancelButton: 'Cancel'
+    duration: 3000,
   };
 
   constructor(private popupDirective: PopupNotificationDirective) {}

@@ -1,3 +1,3 @@
-export const DURATION = 3000;
+export const DURATION: number = 3000;
 
-export const MAX_STACK_SIZE = 5;
+export const MAX_STACK_SIZE: number = 5;

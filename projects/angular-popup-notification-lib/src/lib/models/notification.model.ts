@@ -6,7 +6,7 @@ export interface Notification {
     createdAt: number;
     submitButton?: string;
     cancelButton?: string;
-    isHidden?: boolean;
+    isHidden: boolean;
     isExpanded?: boolean;
 }
 
